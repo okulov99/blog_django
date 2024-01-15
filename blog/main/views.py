@@ -15,3 +15,8 @@ def add_post(request):
         form.save()
         return redirect('home')
     return render(request, 'main/add_post.html', {'form': form})
+
+
+def post_detail(request, pk):
+    post = Post.objects.get(id=pk)
+    return render(request, 'main/post_detail.html', {'post': post})

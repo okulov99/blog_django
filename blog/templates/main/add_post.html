@@ -1,9 +1,19 @@
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" media="all"/>
 </head>
 <body>
+    <nav role="navigation" class="primary-navigation">
+        <ul>
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="/admin">Админ-панель</a></li>
+            <li><a href="{% url 'add_post' %}">Добавить статью</a></li>
+            <li><a href="#">Заглушка</a></li>
+        </ul>
+    </nav>
     <h1>Добавление поста</h1>
     <form action="" method="post">
         {% csrf_token %}
