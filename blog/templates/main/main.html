@@ -1,0 +1,19 @@
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="posts">
+        <h3>Записи</h3>
+        {% for post in post_list %}
+        <div>
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.content }}</p>
+            <p>Автор: {{ post.author }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
