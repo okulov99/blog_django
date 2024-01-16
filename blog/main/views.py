@@ -1,22 +1,24 @@
-from django.shortcuts import render, redirect
+#from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from .models import Post
 from .forms import AddPostForm
+from django.views.generic import ListView, DetailView, CreateView
 
 
-def show_main(request):
-    posts = Post.objects.all()
-    return render(request, 'main/main.html', {'post_list': posts})
+class Home(ListView):
+    model = Post
+    template_name = 'main/main.html'
+    context_object_name = 'post_list'
 
 
-def add_post(request):
-    form = AddPostForm(request.POST)
-    if form.is_valid():
-        form = form.save(commit=False)
-        form.save()
-        return redirect('home')
-    return render(request, 'main/add_post.html', {'form': form})
+class PostDetail(DetailView):
+    model = Post
+    template_name = 'main/post_detail.html'
+    context_object_name = 'post'
 
 
-def post_detail(request, pk):
-    post = Post.objects.get(id=pk)
-    return render(request, 'main/post_detail.html', {'post': post})
+class AddPost(CreateView):
+    form_class = AddPostForm
+    template_name = 'main/add_post.html'
+    success_url = reverse_lazy('home')
+
