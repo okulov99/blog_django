@@ -14,13 +14,34 @@
                 <li><a href="#">Заглушка</a></li>
             </ul>
         </nav>
-        <div class="post">
-            <h3>{{ post.title }}</h3>
-            <div>
-                <img src="{{ post.img.url }}" width="200px">
-                <p>{{ post.content }}</p>
-                <p>Автор: {{ post.author }}</p>
+
+
+<!--        <div class="post">-->
+<!--            <h3>{{ post.title }}</h3>-->
+<!--            <div>-->
+<!--                <img src="{{ post.img.url }}" width="200px">-->
+<!--                <p>{{ post.content }}</p>-->
+<!--                <p>Автор: {{ post.author }}</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="container">
+            <div class="post-detail">
+                <div class="post-detail-img">
+                    <img src="{{ post.img.url }}">
+                </div>
+                <div class="post-detail-content">
+                    <div class="post-detail-header">
+                        <h1>{{ post.title }}</h1>
+                        <div class="post-detail-meta">
+                            <time datetime="{{ post.date }}">{{ post.date }}</time>
+                            <span class="author">{{ post.author }}</span>
+                        </div>
+                    </div>
+                    <p>{{ post.content }}</p>
+                </div>
             </div>
         </div>
+
 </body>
 </html>
