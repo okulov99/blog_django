@@ -1,9 +1,13 @@
+@import url("nav.css");
+@import url("pagination.css");
+
 @font-face {
   font-family: "Open Sans";
   src:url(https://netology-code.github.io/html-2-diploma/sources/fonts/OpenSans-Regular.woff);
   font-weight: normal;
   font-style: normal;
 }
+
 
 * {
   box-sizing: border-box;
@@ -12,52 +16,14 @@
 }
 
 
-
 body {
   font-family: "Open Sans", "Arial", sans-serif;
   min-width: 1200px;
-   margin: 0;
+  margin: 0;
 }
 
 img {
    vertical-align: middle;
-}
-
-/*НАВИГАЦИЯ*/
-nav.primary-navigation {
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    padding: 50px 0 0 0;
-    list-style: none;
-}
-
-nav.primary-navigation ul li {
-  list-style: none;
-  margin: 0 auto;
-  border-left: 2px solid #3ca0e7;
-  display: inline-block;
-  padding: 0 30px;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-}
-
-nav.primary-navigation ul li:last-child {
-    border-right: 2px solid #3ca0e7;
-}
-
-
-nav.primary-navigation li a {
-  color: black;
-}
-
-nav.primary-navigation li a:hover {
-  color: #3ca0e7;
-}
-
-nav a {
-  text-decoration: none;
 }
 
 /*СТАТЬИ*/
@@ -75,16 +41,20 @@ nav a {
 }
 
 .post-text {
-    width: 367px;
     padding-left: 30px;
 }
 
+.post-title a {
+    text-decoration: none;
+}
+
 .post-title {
-    width: 330px;
-    margin: 0;
     padding-bottom: 15px;
     text-transform: uppercase;
     font-size: 20px;
+    color: #222;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 /*ДЕТАЛИ ПОСТА*/
@@ -110,7 +80,7 @@ nav a {
 .post-detail h1 {
     color: #222;
     font-weight: 500;
-     margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .post-detail-header {
@@ -145,3 +115,34 @@ time:after {
     margin-bottom: 1em;
     text-align: justify;
 }
+
+/*ФОРМА ДОБАВЛЕНИЯ ЗАПИСИ*/
+
+.add-post-form {
+    max-width: 500px;
+    margin: 100px auto;
+}
+
+.add-post-form input {
+    margin-top: 10px;
+}
+
+.add-post-form input {
+    height: 25px;
+    margin-top: 10px;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.add-post-form textarea {
+    height: 40px;
+    margin-top: 10px;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.submit-btn {
+    width: 30px;
+    margin: 0 auto;
+}
+
