@@ -1,5 +1,6 @@
 @import url("nav.css");
 @import url("pagination.css");
+@import url("users.css");
 
 @font-face {
   font-family: "Open Sans";
@@ -141,8 +142,4 @@ time:after {
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
-.submit-btn {
-    width: 30px;
-    margin: 0 auto;
-}
 

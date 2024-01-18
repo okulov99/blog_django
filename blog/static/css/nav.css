@@ -33,3 +33,21 @@ nav.primary-navigation li a:hover {
 nav a {
   text-decoration: none;
 }
+
+nav button {
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    background: none;
+    display: inline-block;
+    position: relative;
+}
+
+nav.primary-navigation button:hover {
+  color: #3ca0e7;
+}
+
+nav.primary-navigation p {
+    display: inline-block;
+    position: relative;
+}

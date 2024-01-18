@@ -1,0 +1,18 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" media="all"/>
+</head>
+<body>
+    <form class="transparent" method="post">
+        <div class="form-inner">
+        <h3>Авторизация</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+        </div>
+    </form>
+</body>
+</html>
