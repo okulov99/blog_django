@@ -4,12 +4,6 @@ from . import views
 
 urlpatterns = [
     path('login/', views.LoginUser.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout')
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('register/', views.RegisterUser.as_view(), name='register')
 ]
-
-
-# {% if user.is_authenticated %}
-#     <li class="last"> {{user.username}} | <a href="{% url 'users:logout' %}">Выйти</a></li>
-# {% else %}
-#     <li class="last"><a href="{% url 'users:login' %}">Войти</a> | <a href="#">Регистрация</a></li>
-# {% endif %}

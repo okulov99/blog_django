@@ -28,4 +28,3 @@ class AddPost(LoginRequiredMixin, CreateView):
     form_class = AddPostForm
     template_name = 'main/add_post.html'
     success_url = reverse_lazy('home')
-
