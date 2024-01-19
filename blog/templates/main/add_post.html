@@ -11,7 +11,17 @@
             <li><a href="{% url 'home' %}">Главная</a></li>
             <li><a href="/admin">Админ-панель</a></li>
             <li><a href="{% url 'add_post' %}">Добавить статью</a></li>
+            {% if user.is_authenticated %}
+
+            <li>
+                <p>{{ user.username }}</p> |<form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+                </form>
+            </li>
+            {% else %}
             <li><a href="{% url 'login' %}">Войти</a></li>
+            {% endif %}
         </ul>
     </nav>
 

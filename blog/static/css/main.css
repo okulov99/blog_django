@@ -39,6 +39,7 @@ img {
 
 .post {
     display: flex;
+    margin-top: 30px;
 }
 
 .post-text {
@@ -120,8 +121,9 @@ time:after {
 /*ФОРМА ДОБАВЛЕНИЯ ЗАПИСИ*/
 
 .add-post-form {
+    position: relative;
     max-width: 500px;
-    margin: 100px auto;
+    margin: 50px auto 0;
 }
 
 .add-post-form input {
