@@ -6,42 +6,25 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" media="all"/>
 </head>
 <body>
-    <nav role="navigation" class="primary-navigation">
-        <ul>
-            <li><a href="{% url 'home' %}">Главная</a></li>
-            <li><a href="/admin">Админ-панель</a></li>
-            <li><a href="{% url 'add_post' %}">Добавить статью</a></li>
-            {% if user.is_authenticated %}
+    {% include "main/nav.html" %}
 
-            <li>
-                <p>{{ user.username }}</p> |<form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Выйти</button>
-                </form>
-            </li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Войти</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-
-        <div class="container">
-            <div class="post-detail">
-                <div class="post-detail-img">
-                    <img src="{{ post.img.url }}">
-                </div>
-                <div class="post-detail-content">
-                    <div class="post-detail-header">
-                        <h1>{{ post.title }}</h1>
-                        <div class="post-detail-meta">
-                            <time datetime="{{ post.date }}">{{ post.date }}</time>
-                            <span class="author">{{ post.author }}</span>
-                        </div>
+    <div class="container">
+        <div class="post-detail">
+            <div class="post-detail-img">
+                <img src="{{ post.img.url }}">
+            </div>
+            <div class="post-detail-content">
+                <div class="post-detail-header">
+                    <h1>{{ post.title }}</h1>
+                    <div class="post-detail-meta">
+                        <time datetime="{{ post.date }}">{{ post.date }}</time>
+                        <span class="author">{{ post.author }}</span>
                     </div>
-                    <p>{{ post.content }}</p>
                 </div>
+                <p>{{ post.content }}</p>
             </div>
         </div>
+    </div>
 
 </body>
 </html>
