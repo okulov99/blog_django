@@ -4,6 +4,12 @@
     <title>Профиль пользователя</title>
 </head>
 <body>
-    {{ form.as_p }}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <a href="{% url 'password_change' %}">Изменить пароль</a>
 </body>
 </html>
