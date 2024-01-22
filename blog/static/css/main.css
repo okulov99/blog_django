@@ -144,4 +144,11 @@ time:after {
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
-
+.submit-btn input {
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    background: none;
+    display: inline-block;
+    position: relative;
+}
