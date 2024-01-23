@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import AddPostForm
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 class Home(ListView):
@@ -27,4 +27,17 @@ class AddPost(LoginRequiredMixin, CreateView):
     """
     form_class = AddPostForm
     template_name = 'main/add_post.html'
+    success_url = reverse_lazy('home')
+
+
+class UpdatePost(LoginRequiredMixin, UpdateView):
+    """Класс отвечает за возможность редактирования существующей записи"""
+    model = Post
+    fields = ['title', 'content', 'author', 'date', 'img']
+    template_name = 'main/add_post.html'
+    success_url = reverse_lazy('home')
+
+
+class DeletePost(LoginRequiredMixin, DeleteView):
+    model = Post
     success_url = reverse_lazy('home')

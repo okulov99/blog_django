@@ -23,6 +23,8 @@
                 </div>
                 <p>{{ post.content }}</p>
             </div>
+            <a href="{% url 'edit_page' post.pk %}">Изменить статью</a>
+            <a href="{% url 'del_page' post.pk %}">Удалить статью</a>
         </div>
     </div>
 
