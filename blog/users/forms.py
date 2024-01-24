@@ -6,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, Pass
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Логин')
     password = forms.CharField(label='Пароль',
-                            widget=forms.PasswordInput)
+                               widget=forms.PasswordInput)
 
     class Meta:
         model = get_user_model()
@@ -40,7 +40,7 @@ class ProfileUserForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'first_name', 'last_name', 'photo']
         labels = {
             'first-name': 'Имя',
             'last-name': 'Фамилия'

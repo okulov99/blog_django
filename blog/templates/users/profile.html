@@ -1,10 +1,13 @@
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Профиль пользователя</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" media="all"/>
 </head>
 <body>
-    <form method="post">
+    {% include 'main/nav.html' %}
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Сохранить</button>
