@@ -29,6 +29,11 @@ class AddPost(LoginRequiredMixin, CreateView):
     template_name = 'main/add_post.html'
     success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        w = form.save(commit=False)
+        w.author = self.request.user
+        return super().form_valid(form)
+
 
 class UpdatePost(LoginRequiredMixin, UpdateView):
     """Класс отвечает за возможность редактирования существующей записи"""

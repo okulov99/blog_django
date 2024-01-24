@@ -18,7 +18,7 @@
                     <h1>{{ post.title }}</h1>
                     <div class="post-detail-meta">
                         <time datetime="{{ post.date }}">{{ post.date }}</time>
-                        <span class="author">{{ post.author }}</span>
+                        <span class="author">{{ post.author.username|default:'неизвестен' }}</span>
                     </div>
                 </div>
                 <p>{{ post.content }}</p>
