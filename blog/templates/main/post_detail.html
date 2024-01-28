@@ -23,8 +23,10 @@
                 </div>
                 <p>{{ post.content }}</p>
             </div>
-            <a href="{% url 'edit_page' post.pk %}">Изменить статью</a>
-            <a href="{% url 'del_page' post.pk %}">Удалить статью</a>
+            {% if post.author.username == user.username %}
+            <button class="btn-post-edit"><a href="{% url 'edit_page' post.pk %}">Изменить статью</a></button>
+            <button class="btn-post-delete"><a href="{% url 'del_page' post.pk %}">Удалить статью</a></button>
+            {% endif %}
         </div>
     </div>
 

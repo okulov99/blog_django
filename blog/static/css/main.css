@@ -20,7 +20,7 @@
 body {
   font-family: "Open Sans", "Arial", sans-serif;
   min-width: 1200px;
-  margin: 0;
+  margin: 50px auto 0;
 }
 
 img {
@@ -71,6 +71,19 @@ img {
     padding: 2em 0 1em;
 }
 
+.post-detail a {
+    text-decoration: none;
+    color: white;
+}
+
+.post-detail button {
+   margin-top: 10px;
+   color: white;
+   background: #1762EE;
+   display: block;
+   border-radius: 20px;
+}
+
 .post-detail-img img {
     float: left;
     width: 300px;
@@ -117,6 +130,8 @@ time:after {
     margin-bottom: 1em;
     text-align: justify;
 }
+
+
 
 /*ФОРМА ДОБАВЛЕНИЯ ЗАПИСИ*/
 
