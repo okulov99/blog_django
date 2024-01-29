@@ -40,4 +40,27 @@
    background: #1762EE;
 }
 
-/*Форма регистрации*/
+/*Профиль пользователя*/
+
+.profile-inner {
+    margin: 50px auto 0 auto;
+    max-width: 800px;
+}
+
+.profile-inner img {
+    float: left;
+    margin-right: 30px;
+    border: 3px solid black;
+}
+
+.profile-inner form input { margin-top: 10px; }
+
+.profile-inner h2 { text-align: center; }
+
+.profile-inner a { text-decoration: none; color: black; }
+
+.profile-btn {
+    margin-top: 10px;
+    width: 200px;
+    cursor: pointer;
+}

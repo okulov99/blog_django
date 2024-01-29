@@ -7,12 +7,22 @@
 </head>
 <body>
     {% include 'main/nav.html' %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Сохранить</button>
-    </form>
+    <div class="profile-inner">
+        <h2>Ваш профиль</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if user.photo %}
+            <img src="{{ user.photo.url }}" width="250px" height="250px">
+            {% else %}
+            <img src="{{ default_image }}" width="250px" height="250px">
+            {% endif %}
 
-    <a href="{% url 'password_change' %}">Изменить пароль</a>
+            {{ form.as_p }}
+            <button class="profile-btn" type="submit">Сохранить изменения</button>
+        </form>
+        <button class="profile-btn"><a href="{% url 'password_change' %}">Изменить пароль</a></button>
+    </div>
+
+
 </body>
 </html>

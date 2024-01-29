@@ -23,15 +23,15 @@ nav.primary-navigation ul li:last-child {
 
 
 nav.primary-navigation li a {
-  color: black;
+     color: black;
 }
 
 nav.primary-navigation li a:hover {
-  color: #3ca0e7;
+    color: #3ca0e7;
 }
 
 nav a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 nav button {
@@ -44,7 +44,7 @@ nav button {
 }
 
 nav.primary-navigation button:hover {
-  color: #3ca0e7;
+    color: #3ca0e7;
 }
 
 nav.primary-navigation p {
