@@ -16,3 +16,13 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Запись'
         verbose_name_plural = 'Записи'
+
+
+class Comment(models.Model):
+    text = models.TextField('Текст комментария')
+    name = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Автор комментария')
+    post = models.ForeignKey(Post, verbose_name='Публикация', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'

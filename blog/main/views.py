@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views import View
 from .models import Post
-from .forms import AddPostForm
+from .forms import AddPostForm, AddCommentForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
@@ -18,6 +20,9 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'main/post_detail.html'
     context_object_name = 'post'
+    extra_context = {
+        'form': AddCommentForm
+    }
 
 
 class AddPost(LoginRequiredMixin, CreateView):
@@ -46,3 +51,15 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
 class DeletePost(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('home')
+
+
+class AddComments(View):
+    """Добавление комментариев"""
+    def post(self, request, pk):
+        form = AddCommentForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.post_id = pk
+            form.name = request.user
+            form.save()
+        return redirect(f'/{pk}')
