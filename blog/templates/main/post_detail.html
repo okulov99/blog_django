@@ -32,10 +32,14 @@
             {{ form.as_p }}
              <input type="submit" value="Оставить комментарий">
         </form>
-        {% for comment in post.comment_set.all %}
-            <h4>{{ comment.name }}</h4>
-            <p>{{ comment.text }}</p>
-        {% endfor %}
+        <div class="comment-wrapper">
+            {% for comment in post.comment_set.all %}
+            <div class="comment-card">
+                <h4>{{ comment.name }}</h4>
+                <p>{{ comment.text }}</p>
+            {% endfor %}
+            </div>
+        </div>
     </div>
 
 </body>

@@ -12,7 +12,9 @@
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Войти">
+            <p>или</p>
         </div>
     </form>
+    <a class='github-link' href="{% url 'social:begin' 'github' %}">Войти через Github</a>
 </body>
 </html>

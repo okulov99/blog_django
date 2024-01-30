@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -28,7 +29,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -101,9 +102,25 @@ LOGIN_URL = 'login'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'users.authentication.EmailAuthBackend'
+    'users.authentication.EmailAuthBackend',
+    'social_core.backends.github.GithubOAuth2'
 ]
 
 AUTH_USER_MODEL = 'users.User'
 
 DEFAULT_USER_IMAGE = MEDIA_URL + 'users/default.jpg'
+
+SOCIAL_AUTH_GITHUB_KEY = 'ca8209b38ebf838d8521'
+SOCIAL_AUTH_GITHUB_SECRET = '45132c78a56cd55180c76088d86a0cd9dea8dfa5'
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.social_auth.associate_by_email',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
