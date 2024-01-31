@@ -22,6 +22,7 @@ class Comment(models.Model):
     text = models.TextField('Текст комментария')
     name = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Автор комментария')
     post = models.ForeignKey(Post, verbose_name='Публикация', on_delete=models.CASCADE)
+    time = models.DateTimeField(auto_now_add=True, verbose_name='Дата комментария', null=True)
 
     class Meta:
         verbose_name = 'Комментарий'
