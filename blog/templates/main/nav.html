@@ -5,7 +5,7 @@
         <li><a href="{% url 'add_post' %}">Добавить статью</a></li>
         {% if user.is_authenticated %}
         <li>
-            <a href="{% url 'profile' %}">{{ user.username }}</a> |<form action="{% url 'logout' %}" method="post">
+            <a class="username-link" href="{% url 'profile' %}">{{ user.username }}</a> | <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Выйти</button>
         </form>

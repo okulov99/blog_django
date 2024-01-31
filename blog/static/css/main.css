@@ -1,6 +1,8 @@
 @import url("nav.css");
 @import url("pagination.css");
 @import url("users.css");
+@import url("comments.css")
+
 
 @font-face {
   font-family: "Open Sans";
@@ -131,8 +133,31 @@ time:after {
     text-align: justify;
 }
 
+.post-detail .btn-post-edit {
+    width: 150px;
+    display: inline-block;
+}
 
+.post-detail .btn-post-delete {
+    width: 150px;
+    display: inline-block;
+}
 
+.delete-post-form {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.delete-post-form input {
+    margin-top: 20px;
+    border-radius: 20px;
+    line-height: 30px;
+    width: 30%;
+    background: #1762EE;
+    color: white;
+}
 /*ФОРМА ДОБАВЛЕНИЯ ЗАПИСИ*/
 
 .add-post-form {
@@ -146,6 +171,7 @@ time:after {
 }
 
 .add-post-form input {
+    border-width: 1px;
     height: 25px;
     margin-top: 10px;
     border-radius:10px;
@@ -166,4 +192,25 @@ time:after {
     background: none;
     display: inline-block;
     position: relative;
+    width: 40%;
+    background: #1762EE;
+    color: white;
+}
+
+.submit-btn {
+    margin: 0 auto;
+}
+
+/*Комментарии*/
+.comment-wrapper {
+    max-width: 800px;
+    margin: auto;
+    border-radius: 20px;
+    padding: 20px 40px 20px 0px;
+}
+
+.comment-card {
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+    padding: 5px;
 }

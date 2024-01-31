@@ -47,7 +47,6 @@ nav.primary-navigation button:hover {
     color: #3ca0e7;
 }
 
-nav.primary-navigation p {
+nav.primary-navigation form {
     display: inline-block;
-    position: relative;
 }
