@@ -17,8 +17,9 @@
                     </div>
                     <div class="post-text">
                         <div class="post-title">
-                            <a href="{{ post.id }}">{{ post.title }}</a>
+                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                         </div>
+                        <time class="post-date">{{ post.date }}</time>
                         <cite class="post-author">Автор: {{ post.author.username|default:'неизвестен' }}</cite>
                         <div class="post-content">
                             <p>{{ post.content|truncatewords:50 }}</p>

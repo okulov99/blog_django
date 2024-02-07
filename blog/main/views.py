@@ -20,6 +20,7 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'main/post_detail.html'
     context_object_name = 'post'
+    slug_url_kwarg = 'post_slug'
     extra_context = {
         'form': AddCommentForm
     }
