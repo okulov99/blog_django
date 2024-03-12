@@ -1,12 +1,6 @@
+{% extends 'base.html'  %}
 {% load static %}
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Профиль пользователя</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" media="all"/>
-</head>
-<body>
-    {% include 'main/nav.html' %}
+{% block content %}
     <div class="profile-inner">
         <h2>Ваш профиль</h2>
         <form method="post" enctype="multipart/form-data">
@@ -22,7 +16,4 @@
         </form>
         <button class="profile-btn"><a href="{% url 'password_change' %}">Изменить пароль</a></button>
     </div>
-
-
-</body>
-</html>
+{% endblock %}

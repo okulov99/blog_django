@@ -1,12 +1,15 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib import auth
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
-
+from django.contrib.auth.decorators import login_required
 from .forms import LoginUserForm, RegisterUserForm, ProfileUserForm, UserPasswordChangeForm
 
 
@@ -40,3 +43,9 @@ class UserPasswordChange(PasswordChangeView):
     form_class = UserPasswordChangeForm
     success_url = reverse_lazy('password_change_done')
     template_name = 'users/password_change_form.html'
+
+
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect(reverse('home'))
