@@ -4,8 +4,21 @@ from django.urls import reverse
 from slugify import slugify
 
 
+class Categories(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name='Название категории')
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     """Данные о посте"""
+    category = models.ForeignKey(to=Categories, on_delete=models.CASCADE, verbose_name='Категория')
     slug = models.SlugField('Slug', max_length=255, null=True)
     title = models.CharField('Заголовок записи', max_length=100)
     content = models.TextField('Текст записи')

@@ -1,4 +1,3 @@
-@import url("nav.css");
 @import url("pagination.css");
 @import url("users.css");
 @import url("comments.css")
@@ -29,6 +28,10 @@ img {
    vertical-align: middle;
 }
 
+.dropdown {
+    top: 60px;
+    left: 80px;
+}
 /*СТАТЬИ*/
 
 .posts h1 {

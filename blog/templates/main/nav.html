@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Главная</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Главная</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'add_post' %}">Добавить статью</a>
@@ -39,28 +39,3 @@
 </nav>
 
 
-
-
-
-
-
-
-
-
-<!--<nav role="navigation" class="primary-navigation">-->
-<!--    <ul>-->
-<!--        <li><a href="{% url 'home' %}">Главная</a></li>-->
-<!--        <li><a href="/admin">Админ-панель</a></li>-->
-<!--        <li><a href="{% url 'add_post' %}">Добавить статью</a></li>-->
-<!--        {% if user.is_authenticated %}-->
-<!--        <li>-->
-<!--            <a class="username-link" href="{% url 'profile' %}">{{ user.username }}</a> | <form action="{% url 'logout' %}" method="post">-->
-<!--            {% csrf_token %}-->
-<!--            <button type="submit">Выйти</button>-->
-<!--        </form>-->
-<!--        </li>-->
-<!--        {% else %}-->
-<!--        <li><a href="{% url 'login' %}">Войти</a> | <a href="{% url 'register' %}">Регистрация</a></li>-->
-<!--        {% endif %}-->
-<!--    </ul>-->
-<!--</nav>-->

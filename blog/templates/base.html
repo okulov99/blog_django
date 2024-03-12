@@ -6,10 +6,23 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}"/>
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/icons8-all-32.png' %}">
+
 </head>
 <body>
         {% include "main/nav.html" %}
-
+        <div class="dropdown mb-2">
+            <button class="btn btn-secondary dropdown-toggle btn-light" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                Категории
+                <img class="mx-1" src="{% static 'icons/icons8-all-32.png' %}" alt="Catalog Icon" width="16"
+                     height="16">
+            </button>
+            <ul class="dropdown-menu bg-light" data-bs-theme="light">
+                {% for category in categories %}
+                <li><a class="dropdown-item text-black" href="{% url 'home' category.slug%}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
         <!-- Контент на странице -->
         {% block content %} {% endblock %}
         <!-- Конец контента на странице -->
@@ -18,5 +31,6 @@
              <span class="text-muted">Copyright &copy; All Blog 2024</span>
          </div>
         </footer>
+        <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

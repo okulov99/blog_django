@@ -1,18 +1,36 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_list_or_404, render
 from django.urls import reverse_lazy
 from django.views import View
-from .models import Post
+from .models import Post, Categories
 from .forms import AddPostForm, AddCommentForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator
 
 
-class Home(ListView):
-    """Класс отвечает за отображение главной страницы сайта"""
-    model = Post
-    template_name = 'main/main.html'
-    context_object_name = 'post_list'
-    paginate_by = 3
+def index(request):
+    categories = Categories.objects.all()
+    context = {
+        'categories': categories
+    }
+    return render(request, 'main/index.html', context)
+
+
+def show_categories(request, category_slug=None):
+    if category_slug == 'all':
+        post = Post.objects.all()
+    else:
+        post = get_list_or_404(Post.objects.filter(category__slug=category_slug))
+
+    # paginator = Paginator(post, 3)
+    # current_page = paginator.page(int(page))
+    categories = Categories.objects.all()
+    context = {
+        'post_list': post,
+        'categories': categories,
+
+    }
+    return render(request, 'main/main.html', context)
 
 
 class PostDetail(DetailView):
