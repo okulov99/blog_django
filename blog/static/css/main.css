@@ -183,18 +183,13 @@ time:after {
 }
 
 .add-post-form input {
-    border-width: 1px;
-    height: 25px;
+    height: 35px;
     margin-top: 10px;
-    border-radius:10px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
 .add-post-form textarea {
     height: 40px;
     margin-top: 10px;
-    border-radius:10px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
 .submit-btn input {

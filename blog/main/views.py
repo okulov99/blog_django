@@ -57,7 +57,7 @@ class AddPost(LoginRequiredMixin, CreateView):
     """
     form_class = AddPostForm
     template_name = 'main/add_post.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         w = form.save(commit=False)
@@ -70,12 +70,12 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ['title', 'content', 'author', 'date', 'img']
     template_name = 'main/add_post.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('index')
 
 
 class DeletePost(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('index')
 
 
 class AddComments(View):

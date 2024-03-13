@@ -17,14 +17,6 @@
     text-transform: uppercase;
 }
 
-.form-inner label {
-    display: block;
-    width: 100%;
-    padding: 0 15px;
-    font-size: 14px;
-    margin: 5px;
-}
-
 .form-inner input {
     display: block;
     width: 100%;
@@ -41,7 +33,6 @@
    background: #1762EE;
 }
 
-.form-inner p { text-align: center; }
 
 .github-link {
     margin: 0 auto;
