@@ -2,6 +2,19 @@
 {% load static %}
 
 {% block content %}
+        <div class="dropdown mb-2">
+            <button class="btn btn-secondary dropdown-toggle btn-light" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                Категории
+                <img class="mx-1" src="{% static 'icons/icons8-all-32.png' %}" alt="Catalog Icon" width="16"
+                     height="16">
+            </button>
+            <ul class="dropdown-menu bg-light" data-bs-theme="light">
+                {% for category in categories %}
+                <li><a class="dropdown-item text-black" href="{% url 'home' category.slug%}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
         <div class="content-wrap">
             <div class="posts">
                 <h1>Записи</h1>
@@ -16,6 +29,7 @@
                         </div>
                         <time class="post-date">{{ post.date }}</time>
                         <cite class="post-author">Автор: {{ post.author.username|default:'неизвестен' }}</cite>
+                        <cite>Разработка</cite>
                         <div class="post-content">
                             <p>{{ post.content|truncatewords:50 }}</p>
                         </div>

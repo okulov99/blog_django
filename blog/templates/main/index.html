@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
- <h1>Главная страница блога</h1>
+          <div class="dropdown mb-2">
+            <button class="btn btn-secondary dropdown-toggle btn-light" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                Категории
+                <img class="mx-1" src="{% static 'icons/icons8-all-32.png' %}" alt="Catalog Icon" width="16"
+                     height="16">
+            </button>
+            <ul class="dropdown-menu bg-light" data-bs-theme="light">
+                {% for category in categories %}
+                <li><a class="dropdown-item text-black" href="{% url 'home' category.slug%}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+ <div class="content-wrap">
+  <h1>Главная страница блога</h1>
+   <p class="align-middle">Добро пожаловать на наш блог об IT! Здесь вы найдете все, что нужно знать о последних технологиях, программном обеспечении и устройствах. Мы постоянно обновляем наш контент, чтобы вы всегда были в курсе последних новостей и тенденций в мире информационных технологий.
+   Наш блог - это место, где вы можете узнать о новых продуктах, получить советы по использованию программного обеспечения и устройств, а также узнать о последних разработках в области искусственного интеллекта и машинного обучения.
+   Мы также предлагаем обзоры на различные гаджеты и устройства, чтобы помочь вам выбрать правильный продукт для своих нужд.
+   Если вы хотите быть в курсе всех новинок в мире IT, то наш блог - это то место, где вы найдете все необходимое. Присоединяйтесь к нам и узнавайте больше о мире информационных технологий!
+   </p>
+</div>
 {% endblock %}

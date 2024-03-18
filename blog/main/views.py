@@ -26,9 +26,7 @@ def show_categories(request, category_slug=None):
     paginator = Paginator(post, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    # paginator = Paginator(post, 3)
-    # current_page = paginator.page(int(page))
-    # page_obj = paginator.get_page(current_page)
+
     categories = Categories.objects.all()
     context = {
         'post_list': post,
@@ -87,4 +85,4 @@ class AddComments(View):
             form.post_id = pk
             form.name = request.user
             form.save()
-        return redirect(f'/{pk}')
+        return redirect(request.META.get('HTTP_REFERER'))

@@ -19,6 +19,8 @@ class AddPostForm(forms.ModelForm):
 
 
 class AddCommentForm(forms.ModelForm):
+    text = forms.CharField(label='Текст комментария', widget=forms.Textarea(attrs={'class': 'form-control'}))
+
     class Meta:
         model = Comment
         fields = ['text']

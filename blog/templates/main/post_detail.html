@@ -22,9 +22,11 @@
             {% endif %}
         </div>
         <form action="{% url 'add_comments' post.id %}" method="post">{% csrf_token %}
-            {{ form.as_p }}
+             {{ form.as_p }}
              <input type="submit" value="Оставить комментарий">
         </form>
+    </div>
+
         <div class="comment-wrapper">
             {% for comment in post.comment_set.all %}
             <div class="comment-card">
@@ -34,5 +36,5 @@
             </div>
             {% endfor %}
         </div>
-    </div>
+
 {% endblock %}

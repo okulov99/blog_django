@@ -10,19 +10,6 @@
 </head>
 <body>
         {% include "main/nav.html" %}
-        <div class="dropdown mb-2">
-            <button class="btn btn-secondary dropdown-toggle btn-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                Категории
-                <img class="mx-1" src="{% static 'icons/icons8-all-32.png' %}" alt="Catalog Icon" width="16"
-                     height="16">
-            </button>
-            <ul class="dropdown-menu bg-light" data-bs-theme="light">
-                {% for category in categories %}
-                <li><a class="dropdown-item text-black" href="{% url 'home' category.slug%}">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
         <!-- Контент на странице -->
         {% block content %} {% endblock %}
         <!-- Конец контента на странице -->
