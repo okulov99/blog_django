@@ -7,7 +7,6 @@
       <form action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ form.as_p }}
-
             <div class="submit-btn">
                 <input type="submit">
             </div>

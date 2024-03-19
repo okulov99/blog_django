@@ -15,17 +15,20 @@ from main.models import Post
 
 
 class LoginUser(LoginView):
+    """Авторизация пользователя"""
     form_class = LoginUserForm
     template_name = 'users/login.html'
     
 
 class RegisterUser(CreateView):
+    """Регистрация пользователя"""
     form_class = RegisterUserForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('login')
 
 
 class ProfileUser(LoginRequiredMixin, UpdateView):
+    """Отображение личного кабинета пользователя"""
     model = get_user_model()
     form_class = ProfileUserForm
     template_name = 'users/profile.html'
@@ -42,6 +45,7 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
 
 
 class UserPasswordChange(PasswordChangeView):
+    """Смена пароля пользователя"""
     form_class = UserPasswordChangeForm
     success_url = reverse_lazy('password_change_done')
     template_name = 'users/password_change_form.html'

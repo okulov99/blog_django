@@ -9,6 +9,7 @@ from django.core.paginator import Paginator
 
 
 def index(request):
+    """Главная страница сайта"""
     categories = Categories.objects.all()
     context = {
         'categories': categories
@@ -17,7 +18,7 @@ def index(request):
 
 
 def show_categories(request, category_slug=None):
-
+    """Отображение статей по выбранным категориям"""
     if category_slug == 'all':
         post = Post.objects.all()
     else:
@@ -38,7 +39,7 @@ def show_categories(request, category_slug=None):
 
 
 class PostDetail(DetailView):
-    """Класс отвечает за отображение страниц с деталями поста"""
+    """Отображение страниц с деталями поста"""
     model = Post
     template_name = 'main/post_detail.html'
     context_object_name = 'post'
@@ -64,7 +65,7 @@ class AddPost(LoginRequiredMixin, CreateView):
 
 
 class UpdatePost(LoginRequiredMixin, UpdateView):
-    """Класс отвечает за возможность редактирования существующей записи"""
+    """Редактирование существующей записи"""
     model = Post
     fields = ['title', 'content', 'author', 'date', 'img']
     template_name = 'main/add_post.html'
@@ -72,6 +73,7 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
 
 
 class DeletePost(LoginRequiredMixin, DeleteView):
+    """Удаление записи"""
     model = Post
     success_url = reverse_lazy('index')
 
