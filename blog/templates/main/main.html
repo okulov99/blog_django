@@ -18,7 +18,12 @@
         <div class="content-wrap">
             <div class="posts">
                 <h1>Записи</h1>
+                {% if request.GET.q %}
+                    <h3 class="mt-4">Результаты поиска по запросу '{{ request.GET.q }}'</h3>
+                {% endif %}
+
                 {% for post in page_obj %}
+
                 <div class="post">
                     <div class="post-img">
                         <img src="{{ post.img.url }}" width="200px" height="200px">
@@ -36,6 +41,7 @@
                     </div>
                 </div>
                 {% endfor %}
+
             </div>
         </div>
         {% include "main/pagination.html" %}

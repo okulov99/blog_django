@@ -22,7 +22,7 @@ def index(request):
 def show_categories(request, category_slug=None):
     """Отображение статей по выбранным категориям"""
     query = request.GET.get('q', None)
-    if category_slug == 'all':
+    if category_slug == 'all' or query == '':
         post = Post.objects.all()
     elif query:
         post = q_search(query)
