@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
      path('', views.index, name='index'),
      path('category/<slug:category_slug>/', views.show_categories, name='home'),
+     path('search/', views.show_categories, name='search'),
      path('add_post/', views.AddPost.as_view(), name='add_post'),
      path('post/<slug:post_slug>/', views.PostDetail.as_view(), name='post'),
      path('edit/<int:pk>/', views.UpdatePost.as_view(), name='edit_page'),

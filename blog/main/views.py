@@ -7,6 +7,8 @@ from .forms import AddPostForm, AddCommentForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator
 
+from .utils import q_search
+
 
 def index(request):
     """Главная страница сайта"""
@@ -19,8 +21,11 @@ def index(request):
 
 def show_categories(request, category_slug=None):
     """Отображение статей по выбранным категориям"""
+    query = request.GET.get('q', None)
     if category_slug == 'all':
         post = Post.objects.all()
+    elif query:
+        post = q_search(query)
     else:
         post = get_list_or_404(Post.objects.filter(category__slug=category_slug))
 
