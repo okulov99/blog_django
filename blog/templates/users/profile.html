@@ -15,5 +15,14 @@
             <button class="profile-btn" type="submit">Сохранить изменения</button>
         </form>
         <button class="profile-btn"><a href="{% url 'password_change' %}">Изменить пароль</a></button>
+        {% if post.author == username %}
+            <h2>Ваши записи</h2>
+            {% for post in user_post %}
+            <p><a href="{% url 'post' post.slug %}">{{ post.title }}</a></p>
+            {% endfor %}
+        {% else %}
+            <h2>У Вас нет записей</h2>
+        {% endif %}
+
     </div>
 {% endblock %}

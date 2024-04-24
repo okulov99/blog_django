@@ -39,8 +39,11 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
 
+    post = Post.objects.all()
+
     extra_context = {
         'default_image': settings.DEFAULT_USER_IMAGE,
+        'user_post': post
     }
 
 
