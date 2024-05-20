@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_list_or_404, render
 from django.urls import reverse_lazy
 from django.views import View
@@ -85,6 +86,7 @@ class DeletePost(LoginRequiredMixin, DeleteView):
 
 class AddComments(View):
     """Добавление комментариев"""
+    @login_required
     def post(self, request, pk):
         form = AddCommentForm(request.POST)
         if form.is_valid():
